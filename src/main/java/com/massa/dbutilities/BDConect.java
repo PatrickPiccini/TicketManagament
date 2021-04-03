@@ -13,7 +13,8 @@ abstract class BDConect {
 			con =  DriverManager.getConnection(ct.getTipo()+url);
 			System.out.println("Banco conectado!");
 						
-		}catch(SQLException e){
+		}
+		catch(SQLException e){
 			e.printStackTrace();
 		}
 		return con;

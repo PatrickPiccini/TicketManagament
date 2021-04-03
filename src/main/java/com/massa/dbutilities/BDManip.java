@@ -1,11 +1,27 @@
 package com.massa.dbutilities;
 import java.sql.*;
-import java.util.Date;
 
 import com.massa.models.Usuario;
 
 public class BDManip extends BDConect{
 	
+	
+	
+	private static Integer countUsers() {
+		Connection con = BDConect.connectBD(ConectionTypes.SQLITE, dirDatabase + "tecnico.db");
+		String sql = "select count(*) as soma from tecnico";
+		
+		try (PreparedStatement pstmt = con.prepareStatement(sql);
+			 ResultSet rs = pstmt.executeQuery();){
+			while(rs.next()) {
+				return  rs.getInt("soma");
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 	public static boolean userExists(Usuario u){
 		Connection con = BDConect.connectBD(ConectionTypes.SQLITE, dirDatabase + "tecnico.db");
@@ -30,10 +46,10 @@ public class BDManip extends BDConect{
 				else {
 					pstmt.close();
 					BDConect.closeDB(con);
+				}
 			}
-		}
-				
-		} catch (SQLException e) {
+		} 
+		catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return result;
@@ -45,13 +61,14 @@ public class BDManip extends BDConect{
 		Connection con = BDConect.connectBD(ConectionTypes.SQLITE, dirDatabase + "tecnico.db");
 
 		try {
-			String sql = "insert into tecnico(id, nome, sobrenome, senha, email, nascimento) values (null, ?, ?, ?, ?, '01/01/2020')";
+			String sql = "insert into tecnico(id, nome, sobrenome, senha, email, nascimento) values (?, ?, ?, ?, ?, '01/01/2020')";
 			
 			PreparedStatement pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, n);
-			pstmt.setString(2, ln);
-			pstmt.setString(3, s);
-			pstmt.setString(4, em);
+			pstmt.setInt(1, countUsers());
+			pstmt.setString(2, n);
+			pstmt.setString(3, ln);
+			pstmt.setString(4, s);
+			pstmt.setString(5, em);
 			
 			pstmt.executeUpdate();
 			pstmt.close();
