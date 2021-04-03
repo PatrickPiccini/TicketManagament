@@ -19,6 +19,7 @@ public class BDManip {
 	
 	public boolean userExists(Usuario u){
 		Connection con = BDConect.connectBD(ConectionTypes.SQLITE, dirDatabase + "tecnico.db");
+		boolean result = false;
 		
 		try {
 			String sql= "select * from tecnico where nome = ? and senha = ?";
@@ -28,26 +29,28 @@ public class BDManip {
 			pstmt.setString(1, u.getNome());
 			pstmt.setString(2, u.getSenha());
 			
-			System.out.println("1");
 			ResultSet rs = pstmt.executeQuery(sql);
 
-			if (rs.getString("nome").equals(u.getNome()) && rs.getString("senha").equals(u.getSenha())) {
-				pstmt.close();
-				BDConect.closeDB(con);
-				return true;
+			while (rs.next()) {
+				if (rs.getString("nome").equals(u.getNome()) && rs.getString("senha").equals(u.getSenha())) {
+					pstmt.close();
+					BDConect.closeDB(con);
+					result = true;
+				}
+				
+				else {
+					pstmt.close();
+					BDConect.closeDB(con);
 			}
-			
-			else {
-				pstmt.close();
-				BDConect.closeDB(con);
-				return false;
-			}
+		}
 				
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return false;
-		}		
+		}
+		return result;
 	}
+	
+	
 	
 	public void userRegister (String n, String s) {
 		Connection con = BDConect.connectBD(ConectionTypes.SQLITE, dirDatabase + "tecnico.db");

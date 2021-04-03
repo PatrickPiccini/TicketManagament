@@ -26,7 +26,7 @@ import java.sql.Statement;
 public class Servlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-	private final String dirDatabase = System.getProperty("user.dir") + System.getProperty("path.separator") + "Massa" + System.getProperty("path.separator") + "Database" + System.getProperty("path.separator");
+	private final String dirDatabase = System.getProperty("user.home") + System.getProperty("file.separator") + "eclipse-workspace" + System.getProperty("file.separator") + "Massa" + System.getProperty("file.separator") + "Database" + System.getProperty("file.separator");
 	private BDManip bdm = new BDManip(dirDatabase);
  
 
@@ -40,10 +40,10 @@ public class Servlet extends HttpServlet {
 		boolean userExists = bdm.userExists(loginUser);
 		
 		if (userExists) {
-			response.sendRedirect("produtos.html");	
+			response.sendRedirect("home.html");	
 		}
 		else {
-			response.sendRedirect("acesso-negado.html");
+			response.sendRedirect("");
 			}
 		
 	}

@@ -18,7 +18,7 @@ import com.massa.dbutilities.BDManip;
 public class ServletRegister extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-	private final String dirDatabase = System.getProperty("user.dir") + System.getProperty("path.separator") + "Massa" + System.getProperty("path.separator") + "Database" + System.getProperty("path.separator");
+	private final String dirDatabase = System.getProperty("user.home") + System.getProperty("file.separator") + "eclipse-workspace" + System.getProperty("file.separator") + "Massa" + System.getProperty("file.separator") + "Database" + System.getProperty("file.separator");
 	private BDManip bdm = new BDManip(dirDatabase);
        
  	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
