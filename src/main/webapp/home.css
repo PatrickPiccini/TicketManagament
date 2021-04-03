@@ -8,7 +8,7 @@ html,body{
 .buttonMenu{
     height: 50px;
     width: 50px;
-    background-color: #4285f4;
+    background-color: #083359;
     border-radius: 50px;
     bottom: 25px;
     right: 25px;
@@ -40,21 +40,42 @@ html,body{
     bottom: -10px;
 }
 .intesMenu{
-    margin: 0;
     padding: 0;
+    top: 100px;
+    display: flex;
+    width: 100%;
+
 }
 .retangleMenu{
-    background-color: rgb(152, 223, 255 );
+    background-color:#049DD9;
     width: 350px;
     height: 100%;
+    /* position: relative; */
 }
-.blocks{
+.interMenu{
+    
+}
+.blocksLinks{
     display: block;
     padding: 20px 5px;
     color: white;
     text-decoration: none;
     font: bold 15pt Arial;
 }
-a:hover{
-    background-color:  rgb(116, 208, 250);
+.blocksLinks:hover{
+    background-color: #1AB6D9;
+}
+.menu{
+    background-color:#d90404;
+    padding: 15px;
+    position: absolute;
+ 
+}
+.UlMenu{
+    list-style: none;
+    background-color: violet;
+    top: 70px;
+    position: absolute;
+    width: 100%;
+    padding: 0;
 }
