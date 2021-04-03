@@ -3,7 +3,7 @@ html,body{
     height: 100%;
 }
 body{
-    background: url(Tela2.jpg) no-repeat center fixed ;
+    background: url(Background/Tela2.jpg) no-repeat center fixed ;
     background-size: cover;
     margin: 0%;
 }
@@ -14,6 +14,7 @@ body{
 }
 .blocksolid{
     width: 800px;
+    height: 1920;
     min-height: 1080px;
     max-height: 2100px;
     background-color: rgb(255, 255, 255);
@@ -24,10 +25,22 @@ body{
     align-items: center;
     padding: 10px;
 
+    animation-name: go-back;
+    animation-duration: 1s;
 
 }
+
+@keyframes go-back{
+    from {
+        transform: translateX(800px);
+      } to {
+        transform: translateX(0);
+      }
+    } 
+
+
 .blocksolid2{
-    margin-top: 100px;
+    margin-top: 50px;
     width: 70%;
     height: 650px;
     padding: 10px;
@@ -43,7 +56,7 @@ body{
 }
 
 .title {
-    margin: 80px 0 0 0;
+    margin: 40px 0 0 0;
     text-align: center;
     text-transform: uppercase;
     font-family: 'Nunito', sans-serif;
@@ -52,7 +65,6 @@ body{
     text-shadow: 5px 2px 5px  #9b9b9b;
 
 }
-
 
 .title2{
     margin-top: 40px;
@@ -185,9 +197,16 @@ footer{
     border-radius: 30px;
     border: none;
     background-color: #004362 ;
+    animation-name: btnback ;
+    animation-duration: 1s;
+}
 
-
-
+@keyframes btnback{
+    from{
+        transform: translateY(-800%);
+    } to {
+        transform: translateY(0);
+    }
 }
 .btnback a{
     color: white;

@@ -5,7 +5,7 @@ html,body{
 }
 
 body{
-    background: url(19994914.jpg) no-repeat center fixed;
+    background: url(Background/19994914.jpg) no-repeat center fixed;
     background-size: cover;
     margin: 0%;
 }
@@ -121,7 +121,18 @@ footer{
     position: absolute ;
     top: 2%  ;
     right: 2%  ;
+    animation-name: go-down;
+    animation-duration: 1s;
 }
+
+@keyframes go-down {
+    from {
+        transform: translateY(-1000px);
+    } to {
+        transform: translateY(0);
+    }
+} 
+
 
 .registry label{
     color: rgb(0, 0, 0);
@@ -135,5 +146,17 @@ footer{
     font-weight:  bold;
 }
 
+.fullpage{
+    animation-name: go-back;
+    animation-duration: 1s;
+    
+}
 
-
+@keyframes go-back {
+    from {
+      transform: translateX(-1000px);
+    } to {
+      transform: translateX(0);
+    }
+  } 
+  
