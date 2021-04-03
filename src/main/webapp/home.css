@@ -10,5 +10,12 @@ body{
 }
 .buttonMenu img{
     width: 60px;
-
+}
+.checkMenu{
+    display: none;
+}
+.retangleMenu{
+    background-color: #049DD9;
+    width: 350px;
+    height: 100%;
 }
