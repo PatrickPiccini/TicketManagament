@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.massa.dbutilities.BDConect;
 import com.massa.models.Usuario;
 import com.massa.dbutilities.*;
 import com.massa.models.*;
@@ -26,8 +25,6 @@ import java.sql.Statement;
 public class Servlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
-	private final String dirDatabase = System.getProperty("user.home") + System.getProperty("file.separator") + "eclipse-workspace" + System.getProperty("file.separator") + "Massa" + System.getProperty("file.separator") + "Database" + System.getProperty("file.separator");
-	private BDManip bdm = new BDManip(dirDatabase);
  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -35,10 +32,8 @@ public class Servlet extends HttpServlet {
 		String s = request.getParameter("password");
 		
 		Usuario loginUser = new Usuario(u, s);
-		System.out.println(dirDatabase + "tecnico.db");
-		boolean userExists = bdm.userExists(loginUser);
 		
-		if (userExists) {
+		if (BDManip.userExists(loginUser)) {
 			response.sendRedirect("home.html");	
 		}
 		else {

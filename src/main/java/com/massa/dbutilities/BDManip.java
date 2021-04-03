@@ -4,20 +4,10 @@ import java.util.Date;
 
 import com.massa.models.Usuario;
 
-public class BDManip {
-	private String dirDatabase;
-
-	public BDManip (String dir) {
-		this.dirDatabase = dir;
-	}
+public class BDManip extends BDConect{
 	
-	public String getDirDatabase() {
-		return dirDatabase;
-	}
 	
-
-	
-	public boolean userExists(Usuario u){
+	public static boolean userExists(Usuario u){
 		Connection con = BDConect.connectBD(ConectionTypes.SQLITE, dirDatabase + "tecnico.db");
 		boolean result = false;
 		
@@ -29,7 +19,7 @@ public class BDManip {
 			pstmt.setString(1, u.getNome());
 			pstmt.setString(2, u.getSenha());
 			
-			ResultSet rs = pstmt.executeQuery(sql);
+			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
 				if (rs.getString("nome").equals(u.getNome()) && rs.getString("senha").equals(u.getSenha())) {
@@ -51,23 +41,27 @@ public class BDManip {
 	
 	
 	
-	public void userRegister (String n, String s) {
+	public static void userRegister (String n, String s, String ln, String em) {
 		Connection con = BDConect.connectBD(ConectionTypes.SQLITE, dirDatabase + "tecnico.db");
 
 		try {
-			String sql = "insert into tecnico(nome, senha, nascimento) values (?, ?, '01/01/2020')";
+			String sql = "insert into tecnico(id, nome, sobrenome, senha, email, nascimento) values (null, ?, ?, ?, ?, '01/01/2020')";
 			
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, n);
-			pstmt.setString(2, s);
+			pstmt.setString(2, ln);
+			pstmt.setString(3, s);
+			pstmt.setString(4, em);
 			
 			pstmt.executeUpdate();
 			pstmt.close();
+			BDConect.closeDB(con);
 			
 			
 		}
 		catch(SQLException e){
 			e.printStackTrace();
+			BDConect.closeDB(con);
 		}
 		
 	}

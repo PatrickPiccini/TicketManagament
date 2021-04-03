@@ -1,9 +1,11 @@
 package com.massa.dbutilities;
 import java.sql.*;
 
-public class BDConect {
+abstract class BDConect {
+	static final String dirDatabase = System.getProperty("user.home") + System.getProperty("file.separator") + "eclipse-workspace" + System.getProperty("file.separator") + "Massa" + System.getProperty("file.separator") + "Database" + System.getProperty("file.separator");
 	
-	public static Connection connectBD(ConectionTypes ct, String url) {
+	
+	static Connection connectBD(ConectionTypes ct, String url) {
 		
 		Connection con = null;
 		
@@ -15,11 +17,10 @@ public class BDConect {
 			e.printStackTrace();
 		}
 		return con;
-
-		
 	}
+	
 		
-	public static void closeDB(Connection con) {
+	static void closeDB(Connection con) {
 		try {
 			if (!con.isClosed()) {}
 				con.close();
