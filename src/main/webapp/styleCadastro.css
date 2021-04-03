@@ -27,7 +27,6 @@ body{
 
     animation-name: go-back;
     animation-duration: 1s;
-
 }
 
 @keyframes go-back{
