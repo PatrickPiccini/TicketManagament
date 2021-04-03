@@ -37,5 +37,4 @@ public class ServletRegister extends HttpServlet {
 		
 		doGet(request, response);
 	}
-
 }

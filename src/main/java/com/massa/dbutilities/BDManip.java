@@ -37,7 +37,6 @@ public class BDManip {
 					BDConect.closeDB(con);
 					result = true;
 				}
-				
 				else {
 					pstmt.close();
 					BDConect.closeDB(con);
