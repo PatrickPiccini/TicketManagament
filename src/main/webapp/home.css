@@ -5,56 +5,10 @@ html,body{
 body{
     margin: 0;
 }
-.checkMenu{
-    display: none;
-}
-
-.buttonMenu{
-    height: 50px;
-    width: 50px;
-    background-color: #083359;
-    border-radius: 50px;
-    bottom: 25px;
-    right: 25px;
-}
-.buttonMenu img{
-    width: 50px;
-    height: 50px;
-}
-
-
-.intesMenu{
-    padding: 0;
-    top: 100px;
-    display: flex;
-    width: 100%;
-
-}
-.retangleMenu{
-    background-color:#049DD9;
-    width: 350px;
-    height: 100%;
-    position: absolute;
-}
-.blocksLinks{
-    display: block;
-    padding: 20px 5px;
-    color: white;
-    text-decoration: none;
-    font: bold 15pt Arial;
-}
-.intesMenu:hover{
-    background-color: #1AB6D9;
-}
-.menu{
-    padding: 15px;
-    position: absolute;
- 
-}
 .UlMenu{
     list-style: none;
-    top: 60px;
-    position: absolute;
-    width: 100%;
-    padding: 0;
+}
+.buttonMenu img{
+    width: 60px;
+
 }
