@@ -1,124 +1,162 @@
-html {
-  width: 100%;
-  height: 100%;
+html,body{
+    width: 100%;
+    height: 100%;
+
 }
 
 body{
-  background: linear-gradient(to left, #1d2d4f, rgb(23, 25, 179) 130%);
+    background: url(Background/19994914.jpg) no-repeat center fixed;
+    background-size: cover;
+    margin: 0%;
 }
-
-
-body .imagem{
-  margin: -33% 55% 9%;
-  animation: bounce 3s infinite alternate;
-}
-
-@keyframes bounce{
-  from{
-    transform: translateY(-10px)
-  }
-  to{
-    transform: translateY(110px);
-  }
-}
-
-body .logo{
-  margin: -40px 83% auto;
-}
-
-.formulario {
-    z-index: 15;
-    position: relative;
-    background: #1d2d4f;
-    width: 450px;
-    height: auto;
-    border-radius: 4px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-    margin: 12% 100px auto;
-    overflow: hidden;
-  }
-
-  .inserçao {
-    display: -webkit-box;
-    display: flex;
-    flex-wrap: wrap;
-    -webkit-box-pack: justify;
-            justify-content: space-between;
-    margin: 10px 50px 20px;
-  }
-
-  .inserçao label {
-    display: block;
-    font-family: Tahoma;
-    margin: 0 0 10px;
-    color: #eacbae;
-    font-size: px;
-    font-weight: 500;
-    line-height: 1;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  .inserçao input {
-    outline: none;
-    display: block;
-    background: #344f89;
+.fullpage{
     width: 100%;
-    border: 1;
-    border-color: #eacbae;
-    border-radius: 4px;
-    padding: 7px 20px;
-    color: rgb(255, 253, 115);
-    font-family: Tahoma;
-    font-size: inherit;
-    font-weight: 500;
-    line-height: inherit;
-    -webkit-transition: 0.3s ease;
-    transition: 0.3s ease;
-  }
+    height: 100%;
+    overflow-y: hidden ;
 
-  .titulo h1 {
-    margin: 10% 30px 10%;
-    font-family: Tahoma;
-    color: #eacbae;
+}
+
+.title {
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Nunito', sans-serif;
     font-size: 24px;
-    font-weight: 700;
-  }
+    color: #ccefff;
+}
+.blocksolid{
+    padding: 10px;
+    height: 400px;
+    min-width: 380px;
+    max-width: 450px;
+    margin-top: 10% ;
+    margin-left: 50px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #0190d2ad;
+    border-radius: 6px;
+    float: left;
+    box-shadow: 3px 3px 8px 3px #00000088;
+    
+}
 
-.botao button {
-    outline: none;
-    background: #eacbae;
-    width: 50%;
-    margin: 10% 24% 10%;
-    border: 0;
-    border-radius: 4px;
-    padding: 12px 20px;
-    color: #344f89;
-    font-family: Tahoma;
-    font-size: inherit;
-    font-weight: 500;
-    line-height: inherit;
-    cursor: pointer;
-  }
+.form-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 80%;
+}
 
-.inserçao .relembrar {
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 0;
-    text-transform: none;
-  }
-
-  .inserçao .relembrar input[type="checkbox"] {
-    display: inline-block;
-    font-family: Tahoma;
-    width: auto;
-    margin: 0 10px 0 0;
-  }
-
-  .inserçao .recuperar{
-    font-family: Tahoma;
-    color: #4285f4;
-    font-size: 12px;
+.form-wrapper a{
+    align-self: flex-end;
     text-decoration: none;
-  }
+}
+
+.formulario{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    
+}
+
+.formulario input{
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 8px 0 8px 8px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    
+}
+
+.formulario label{
+    align-self: flex-start;
+    color: white;
+    font-weight:  bold;
+    font: normal 11pt Arial;
+
+}
+.formulario .inputgroup{
+    gap: 5px;
+    width: 100%
+}
+
+.btn{
+    background-color:  #004362;
+    text-align:  center;
+    font: normal 11pt Arial;
+    border-radius: 50px;
+    padding: 15px ;
+    border: none;
+    color: white;
+
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    align-items: center;
+    font: normal 11pt Arial;
+}
+.checkboxgroup{
+    display: flex;
+    flex-flow: row-reverse;
+    gap: 5px;
+    align-items: center;
+    color: white;
+
+}
+.registry{
+    position: absolute ;
+    top: 2%  ;
+    right: 2%  ;
+    animation-name: go-down;
+    animation-duration: 1s;
+}
+
+@keyframes go-down {
+    from {
+        transform: translateY(-1000px);
+    } to {
+        transform: translateY(0);
+    }
+} 
+
+
+.registry label{
+    color: rgb(0, 0, 0);
+    font: normal 12pt Arial;
+    margin-right: 10px;
+
+}
+.btn.crieconta a{
+    text-decoration: none;
+    color: white;
+    font-weight:  bold;
+}
+
+.fullpage{
+    animation-name: go-back;
+    animation-duration: 1s;
+    
+}
+
+@keyframes go-back {
+    from {
+      transform: translateX(-1000px);
+    } to {
+      transform: translateX(0);
+    }
+  } 
+  
