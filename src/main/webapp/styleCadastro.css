@@ -79,6 +79,12 @@ body{
     text-shadow: 1px 1px 2px  #24242473;
     
 }
+.formularioMain{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .form-wrapper{
     display: flex;
     flex-direction: column;
