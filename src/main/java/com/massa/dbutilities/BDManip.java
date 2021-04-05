@@ -61,14 +61,13 @@ public class BDManip extends BDConect{
 		Connection con = BDConect.connectBD(ConectionTypes.SQLITE, dirDatabase + "tecnico.db");
 
 		try {
-			String sql = "insert into tecnico(id, nome, sobrenome, senha, email, nascimento) values (?, ?, ?, ?, ?, '01/01/2020')";
+			String sql = "insert into tecnico(id, nome, sobrenome, senha, email, nascimento) values (NULL, ?, ?, ?, ?, '01/01/2020')";
 			
 			PreparedStatement pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, countUsers());
-			pstmt.setString(2, n);
-			pstmt.setString(3, ln);
-			pstmt.setString(4, s);
-			pstmt.setString(5, em);
+			pstmt.setString(1, n);
+			pstmt.setString(2, ln);
+			pstmt.setString(3, s);
+			pstmt.setString(4, em);
 			
 			pstmt.executeUpdate();
 			pstmt.close();
