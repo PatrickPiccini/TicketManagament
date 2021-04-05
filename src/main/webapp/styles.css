@@ -90,6 +90,20 @@ body{
     width: 100%
 }
 
+
+.invalido {
+    background-color:  #004362; 
+    text-align:  center;
+    font: bold 11pt Arial;
+    border: 20px;
+    padding: 8px ;
+    border-radius: 8px;
+    color: rgb(255, 255, 255);
+    width: 95%;
+    margin-top: 20px;
+    display: none;
+}
+
 .btn{
     background-color:  #004362;
     text-align:  center;
@@ -158,4 +172,3 @@ footer{
       transform: translateX(0);
     }
   } 
-  
