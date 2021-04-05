@@ -1,6 +1,7 @@
 package com.massa.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,9 +28,11 @@ public class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
  
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
 		
 		String u = request.getParameter("username");
 		String s = request.getParameter("password");
+		
 		
 		Usuario loginUser = new Usuario(u, s);
 		
@@ -37,9 +40,8 @@ public class Servlet extends HttpServlet {
 			response.sendRedirect("home.html");	
 		}
 		else {
-			response.sendRedirect("");
+			
 			}
-		
 	}
 
 
