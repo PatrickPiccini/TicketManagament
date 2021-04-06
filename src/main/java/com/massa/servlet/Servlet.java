@@ -26,7 +26,9 @@ import java.sql.Statement;
 public class Servlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
- 
+	
+	Boolean resposta ;
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		
@@ -40,13 +42,19 @@ public class Servlet extends HttpServlet {
 			response.sendRedirect("home.html");	
 		}
 		else {
-			
+			resposta = true;
 			}
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		response.setContentType("text/html");
+
+		Usuario loginUser = new Usuario (u,s);
+		if (resposta == true){
+			
+		}
+
 		doGet(request, response);
 	}
 
