@@ -26,10 +26,10 @@ body{
 .blocksolid{
     padding: 10px;
     height: 350px;
-    min-width: 210px;
-    max-width: 280px;
+    min-width: 280px;
+    max-width: 350px;
     margin-top: 10% ;
-    margin-left: 250px;
+    margin-left: 200px;
     width: 30%;
     display: flex;
     flex-direction: column;
@@ -39,7 +39,8 @@ body{
     border-radius: 6px;
     float: left;
     box-shadow: 3px 3px 8px 3px #00000088;
-    
+    animation-name: go-back;
+    animation-duration: 1s;
 }
 
 .form-wrapper{
@@ -82,13 +83,6 @@ footer{
     font: normal 11pt Arial;
 }
 
-@keyframes go-down {
-    from {
-        transform: translateY(-1000px);
-    } to {
-        transform: translateY(0);
-    }
-} 
 
 @keyframes go-back {
     from {
