@@ -5,7 +5,7 @@
 
 ###Tecnologias utilizadas:
 
-<img src= 'https://github.com/PatrickPiccini/TicketManagament/blob/main/Icons/pngegg.png' width="120px"/><img src="https://github.com/PatrickPiccini/TicketManagament/blob/main/Icons/JavaScript.png" width="60" /><img src="https://github.com/PatrickPiccini/TicketManagament/blob/main/Icons/Html%205.png"  width="60"  /><img src="https://github.com/PatrickPiccini/TicketManagament/blob/main/Icons/Css3.png" width="60"  />
+<img src="https://github.com/PatrickPiccini/TicketManagament/blob/main/Icons/JavaScript.png" width="60" /><img src="https://github.com/PatrickPiccini/TicketManagament/blob/main/Icons/Html%205.png"  width="60"  /><img src="https://github.com/PatrickPiccini/TicketManagament/blob/main/Icons/Css3.png" width="60" /><img src= 'https://github.com/PatrickPiccini/TicketManagament/blob/main/Icons/Java.png' width="60px"/><img src= 'https://github.com/PatrickPiccini/TicketManagament/blob/main/Icons/pngegg.png' width="120px"/>
 
 <br><br>
 <p>Projeto para a matéria de Programação Orientada a objetos Avançada - IMED</p>
