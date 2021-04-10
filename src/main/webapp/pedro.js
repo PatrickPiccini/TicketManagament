@@ -1,5 +1,8 @@
 // Aparece a DIV de login inválido
-get('.invalido').style.display = "block";
+
+function invalid(){
+	document.querySelector('.invalido').style.display = "block";
+}
 
 // Declaração de itens da DOM
 const remember = document.querySelector("#rmbm");

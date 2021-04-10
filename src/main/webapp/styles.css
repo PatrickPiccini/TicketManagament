@@ -101,7 +101,7 @@ body{
     color: rgb(255, 255, 255);
     width: 95%;
     margin-top: 20px;
-    display: none;
+    display: none !important;
 }
 
 .btn{

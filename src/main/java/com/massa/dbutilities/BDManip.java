@@ -8,7 +8,7 @@ public class BDManip extends BDConect{
 	
 	
 	private static Integer countUsers() {
-		Connection con = BDConect.connectBD(ConectionTypes.SQLITE, dirDatabase + "tecnico.db");
+		Connection con = connectBD(ConectionTypes.SQLITE, dirDatabase + "tecnico.db");
 		String sql = "select count(*) as soma from tecnico";
 		
 		try (PreparedStatement pstmt = con.prepareStatement(sql);
@@ -49,9 +49,10 @@ public class BDManip extends BDConect{
 				}
 			}
 		} 
-		catch (SQLException e) {
+		catch (SQLException e) { 
 			e.printStackTrace();
 		}
+		BDConect.closeDB(con);
 		return result;
 	}
 	
