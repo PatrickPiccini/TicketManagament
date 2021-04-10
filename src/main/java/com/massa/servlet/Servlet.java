@@ -26,12 +26,10 @@ import java.sql.Statement;
 public class Servlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
- 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
-	}
+	
+	Boolean resposta ;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		
 		String u = request.getParameter("username");
@@ -44,10 +42,20 @@ public class Servlet extends HttpServlet {
 			response.sendRedirect("home.html");	
 		}
 		else {
-			response.sendError(401);
-		}
+			resposta = true;
+			}
 	}
-		
-	
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+
+		/*Usuario loginUser = new Usuario (u,s);
+		if (resposta == true){
+			
+		}*/
+
+		doGet(request, response);
+	}
 
 }
