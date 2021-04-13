@@ -44,10 +44,14 @@
             <input type="text" name="idTecnico" id="idTecnico">
                     <p>
 		<%
-		 	ArrayList<Object> c = BDManip.viewTickets(1);
+			Integer idTecnico = Integer.parseInt(request.getParameter("idTecnico"));
+		 	ArrayList<String> c = BDManip.viewTickets(idTecnico);
     		
-    		ArrayList<Object> b = (ArrayList<Object>)c.get(1);
-			out.print(b.get(1));
+    		for (String patrick : c){
+    			out.println(patrick);
+    			
+    		}
+    		//isso faz mostrar a informação colocada na tela
     		
 		%>
 		</p>

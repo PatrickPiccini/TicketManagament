@@ -44,7 +44,8 @@ public class Servlet extends HttpServlet {
 		Usuario loginUser = new Usuario(u, s);
 		
 		if (BDManip.userExists(loginUser)) {
-			response.sendRedirect("teste.jsp?idTecnico=1");
+			String idTecnico = Integer.toString(BDManip.getTecID(loginUser));
+			response.sendRedirect("teste.jsp?idTecnico=" + idTecnico);
 			}
 		else {
 			response.getWriter().append(":( deu erro");

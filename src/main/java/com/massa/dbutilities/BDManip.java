@@ -2,6 +2,8 @@ package com.massa.dbutilities;
 import java.sql.*;
 import java.util.ArrayList;
 
+import org.apache.catalina.util.ToStringUtil;
+
 import com.massa.models.Usuario;
 
 public class BDManip extends BDConect{
@@ -58,6 +60,29 @@ public class BDManip extends BDConect{
 	}
 	
 	
+	public static Integer getTecID(Usuario u){
+		Connection con = BDConect.connectBD(ConectionTypes.SQLITE, dirDatabase + "tecnico.db");
+		
+		try {
+			String sql= "select id from tecnico where nome = ? and senha = ?";
+			
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, u.getNome());
+			pstmt.setString(2, u.getSenha());
+			
+			ResultSet rs = pstmt.executeQuery();
+
+			return rs.getInt("id");
+		} 
+		catch (SQLException e) { 
+			e.printStackTrace();
+		}
+		BDConect.closeDB(con);
+		return null;
+	}
+	
+	
 	
 	public static void userRegister (String n, String s, String ln, String em) {
 		Connection con = BDConect.connectBD(ConectionTypes.SQLITE, dirDatabase + "tecnico.db");
@@ -85,11 +110,10 @@ public class BDManip extends BDConect{
 	}
 	
 	
-	public static ArrayList<Object> viewTickets (Integer id) {
+	public static ArrayList<String> viewTickets (Integer id) {
 		try (Connection con = connectBD(ConectionTypes.SQLITE, dirDatabase + "tecnico.db");)
 		{
-			ArrayList<Object> linha= new ArrayList<Object>(); 
-			ArrayList<Object> chamados = new ArrayList<Object>();
+			ArrayList<String> chamados = new ArrayList<String>();
 			
 			String sql = "SELECT * FROM CHAMADO WHERE IDTECNICO = ?";
 			PreparedStatement pstmt = con.prepareStatement(sql);
@@ -98,11 +122,9 @@ public class BDManip extends BDConect{
 			ResultSet rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				linha.add(rs.getInt("IDTECNICO"));
-				linha.add(rs.getInt("IDCHAMADO"));
-				linha.add(rs.getString("DESCRICAO"));
-				chamados.add(linha);
-				linha.clear();
+				chamados.add(Integer.toString(rs.getInt("IDTECNICO")));
+				chamados.add(Integer.toString(rs.getInt("IDCHAMADO")));
+				chamados.add(rs.getString("DESCRICAO"));
 			}
 			
 			return chamados;
