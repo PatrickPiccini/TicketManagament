@@ -1,3 +1,5 @@
+<%@page import="com.sun.jdi.Type"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.massa.servlet.Servlet" %>
 <%@page import="com.massa.dbutilities.BDManip" %>
 
@@ -40,15 +42,20 @@
     <main class='infosMain'>
         <div class='centralinfos'> 
             <input type="text" name="idTecnico" id="idTecnico">
-        </div>
-        <p>
+                    <p>
 		<%
-			BDManip.viewTickets(1);
+		 	ArrayList<Object> c = BDManip.viewTickets(1);
+    		
+    		ArrayList<Object> b = (ArrayList<Object>)c.get(1);
+			out.print(b.get(1));
+    		
 		%>
 		</p>
 		<p>
 		teste de informação
 		</p>
+        </div>
+
 		
 
     </main>
