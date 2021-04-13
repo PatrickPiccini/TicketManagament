@@ -116,7 +116,7 @@ body{
 }
 .checkMenu:checked ~ .infosMain{
     transform: translateX(350px);  
-    width: 60%;
+    width: 80%;
 }
 
 .centralinfos{

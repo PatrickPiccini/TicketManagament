@@ -34,3 +34,4 @@ function handleName(e) {
 // Listeners
 remember.addEventListener("click", handleValue);
 nameInput.addEventListener("change", handleName);
+
