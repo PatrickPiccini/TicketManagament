@@ -27,35 +27,29 @@ public class Servlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
-	Boolean resposta ;
+	Boolean resposta;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	}
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		response.setContentType("text/html");
 		
-		String u = request.getParameter("username");
-		String s = request.getParameter("password");
+		String u = (String)request.getParameter("username");
+		String s = (String)request.getParameter("password");
 		
 		
 		Usuario loginUser = new Usuario(u, s);
 		
 		if (BDManip.userExists(loginUser)) {
-			response.sendRedirect("home.html");	
-		}
-		else {
-			resposta = true;
+			response.sendRedirect("teste.jsp?idTecnico=1");
 			}
-	}
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-
-		/*Usuario loginUser = new Usuario (u,s);
-		if (resposta == true){
-			
-		}*/
-
-		doGet(request, response);
+		else {
+			response.getWriter().append(":( deu erro");
+			}
+		
 	}
 
 }

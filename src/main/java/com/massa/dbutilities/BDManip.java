@@ -1,5 +1,6 @@
 package com.massa.dbutilities;
 import java.sql.*;
+import java.util.ArrayList;
 
 import com.massa.models.Usuario;
 
@@ -83,5 +84,33 @@ public class BDManip extends BDConect{
 		
 	}
 	
+	
+	public static ArrayList<Object> viewTickets (Integer id) {
+		try (Connection con = connectBD(ConectionTypes.SQLITE, dirDatabase + "tecnico.db");)
+		{
+			ArrayList<Object> linha= new ArrayList<Object>(); 
+			ArrayList<Object> chamados = new ArrayList<Object>();
+			
+			String sql = "SELECT * FROM CHAMADO WHERE IDTECNICO = ?";
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				linha.add(rs.getInt("IDTECNICO"));
+				linha.add(rs.getInt("IDCHAMADO"));
+				linha.add(rs.getString("DESCRICAO"));
+				chamados.add(linha);
+				linha.clear();
+			}
+			
+			return chamados;
+			
+		}catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 	
 }
