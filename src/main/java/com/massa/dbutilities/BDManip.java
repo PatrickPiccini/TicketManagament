@@ -72,7 +72,8 @@ public class BDManip extends BDConect{
 			pstmt.setString(2, u.getSenha());
 			
 			ResultSet rs = pstmt.executeQuery();
-
+			
+			closeDB(con);
 			return rs.getInt("id");
 		} 
 		catch (SQLException e) { 
@@ -127,6 +128,7 @@ public class BDManip extends BDConect{
 				chamados.add(rs.getString("DESCRICAO"));
 			}
 			
+			closeDB(con);
 			return chamados;
 			
 		}catch (SQLException e) {
