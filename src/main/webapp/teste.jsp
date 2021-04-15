@@ -1,3 +1,5 @@
+<%@page import="sun.security.util.Length"%>
+<%@page import="com.massa.models.Chamado"%>
 <%@page import="com.sun.jdi.Type"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.massa.servlet.Servlet" %>
@@ -29,7 +31,7 @@
             <li class='intesMenu'><a href="" class='blocksLinks'>HOME</a></li>
             <li class='intesMenu'><a href="" class='blocksLinks'>CREATE TICKETS</a></li>
             <li class='intesMenu'><a href="" class='blocksLinks'>MY TICKETS</a></li>
-            <li class='intesMenu'><a href="" class='blocksLinks'>SETINGS</a></li>
+            <li class='intesMenu'><a href="" class='blocksLinks'>SETTINGS</a></li>
             <li class='intesMenu'><a href="" class='blocksLinks'>ALGUMACOISA</a></li>
         </ul>
     </nav>
@@ -40,28 +42,34 @@
         </div>
     </header>
     <main class='infosMain'>
-        <div class='centralinfos'> 
-            <input type="text" name="idTecnico" id="idTecnico">
-                    <p>
-		<%
-			Integer idTecnico = Integer.parseInt(request.getParameter("idTecnico"));
-		 	ArrayList<String> c = BDManip.viewTickets(idTecnico);
+    <%
+           	Integer idTecnico = Integer.parseInt(request.getParameter("idTecnico"));
+		 	ArrayList<Chamado> c = BDManip.viewTickets(idTecnico);     
+    		Integer num = c.length;
     		
-    		for (String patrick : c){
-    			out.println(patrick);
-    			
-    		}
-    		//isso faz mostrar a informação colocada na tela
     		
-		%>
-		</p>
-		<p>
-		teste de informação
-		</p>
-        </div>
+    %>
+    <span class=<%
 
-		
-
+    %>></span>
+    
+          <form class='centralinfos'> 
+            <div class='chamado'
+            <%
+    
+            %>>
+                <h3 class="titleID">ID: <%
+					out.print(c.get(0).getIdChamado());
+                
+                %></h3>
+                <label for="descInfo" class="titleDesc">Descriï¿½ï¿½o:</label>
+                <p class="descInfo"><%
+                out.print(c.get(0).getDescricao());
+                %></p>
+            </div>
+        </form>
+       
+      
     </main>
 
 </body>
