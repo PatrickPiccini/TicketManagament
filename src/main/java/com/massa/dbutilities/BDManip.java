@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.apache.catalina.util.ToStringUtil;
 
+import com.massa.models.Chamado;
 import com.massa.models.Usuario;
 
 public class BDManip extends BDConect{
@@ -63,30 +64,6 @@ public class BDManip extends BDConect{
 	}
 	
 	
-	public static Integer getTecID(Usuario u){
-		Connection con = BDConect.connectBD(ConectionTypes.SQLITE, dirDatabase + "tecnico.db");
-		
-		try {
-			String sql= "select id from tecnico where nome = ? and senha = ?";
-			
-			PreparedStatement pstmt = con.prepareStatement(sql);
-			
-			pstmt.setString(1, u.getNome());
-			pstmt.setString(2, u.getSenha());
-			
-			ResultSet rs = pstmt.executeQuery();
-			
-			closeDB(con);
-			return rs.getInt("id");
-		} 
-		catch (SQLException e) { 
-			e.printStackTrace();
-		}
-		BDConect.closeDB(con);
-		return null;
-	}
-	
-	
 	
 	public static void userRegister (String n, String s, String ln, String em) {
 		Connection con = BDConect.connectBD(ConectionTypes.SQLITE, dirDatabase + "tecnico.db");
@@ -114,10 +91,10 @@ public class BDManip extends BDConect{
 	}
 	
 	
-	public static ArrayList<String> viewTickets (Integer id) {
+	public static ArrayList<Chamado> viewTickets (Integer id) {
 		try (Connection con = connectBD(ConectionTypes.SQLITE, dirDatabase + "tecnico.db");)
 		{
-			ArrayList<String> chamados = new ArrayList<String>();
+			ArrayList<Chamado> chamados = new ArrayList<Chamado>();
 			
 			String sql = "SELECT * FROM CHAMADO WHERE IDTECNICO = ?";
 			PreparedStatement pstmt = con.prepareStatement(sql);
@@ -126,9 +103,9 @@ public class BDManip extends BDConect{
 			ResultSet rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				chamados.add(Integer.toString(rs.getInt("IDTECNICO")));
-				chamados.add(Integer.toString(rs.getInt("IDCHAMADO")));
-				chamados.add(rs.getString("DESCRICAO"));
+				Chamado chamado = new Chamado(rs.getInt("IDCHAMADO"), rs.getInt("IDTECNICO"), rs.getString("DESCRICAO"));
+
+				chamados.add(chamado);
 			}
 			
 			closeDB(con);
