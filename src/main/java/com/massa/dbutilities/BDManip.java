@@ -26,9 +26,9 @@ public class BDManip extends BDConect{
 		return null;
 	}
 	
-	public static boolean userExists(Usuario u){
+	public static ArrayList<Object> userExists(Usuario u){
 		Connection con = BDConect.connectBD(ConectionTypes.SQLITE, dirDatabase + "tecnico.db");
-		boolean result = false;
+		ArrayList<Object> result = new ArrayList<Object>();
 		
 		try {
 			String sql= "select * from tecnico where nome = ? and senha = ?";
@@ -42,11 +42,14 @@ public class BDManip extends BDConect{
 
 			while (rs.next()) {
 				if (rs.getString("nome").equals(u.getNome()) && rs.getString("senha").equals(u.getSenha())) {
+					
+					result.add(true);
+					result.add(rs.getInt("id"));
 					pstmt.close();
 					BDConect.closeDB(con);
-					result = true;
 				}
 				else {
+					result.add(false);
 					pstmt.close();
 					BDConect.closeDB(con);
 				}
