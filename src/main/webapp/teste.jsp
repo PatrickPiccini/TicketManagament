@@ -45,13 +45,11 @@
     <%
            	Integer idTecnico = Integer.parseInt(request.getParameter("idTecnico"));
 		 	ArrayList<Chamado> c = BDManip.viewTickets(idTecnico);     
-    		Integer num = c.length;
     		
+    		for(Chamado chamado: c){
+    			
     		
     %>
-    <span class=<%
-
-    %>></span>
     
           <form class='centralinfos'> 
             <div class='chamado'
@@ -59,16 +57,17 @@
     
             %>>
                 <h3 class="titleID">ID: <%
-					out.print(c.get(0).getIdChamado());
+					out.print(chamado.getIdChamado());
                 
                 %></h3>
-                <label for="descInfo" class="titleDesc">Descri��o:</label>
+                <label for="descInfo" class="titleDesc">Descricao:</label>
                 <p class="descInfo"><%
-                out.print(c.get(0).getDescricao());
+                out.print(chamado.getDescricao());
                 %></p>
             </div>
         </form>
-       
+      
+      <% } %> 
       
     </main>
 
