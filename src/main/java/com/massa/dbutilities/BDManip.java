@@ -40,26 +40,24 @@ public class BDManip extends BDConect{
 			pstmt.setString(2, u.getSenha());
 			
 			ResultSet rs = pstmt.executeQuery();
-
-			while (rs.next()) {
-				if (rs.getString("nome").equals(u.getNome()) && rs.getString("senha").equals(u.getSenha())) {
-					
+			System.out.println(rs.getString("senha"));
+			
+			if (rs.getString("nome").equals(u.getNome()) && rs.getString("senha").equals(u.getSenha())) {
+				while (rs.next()) {
 					result.add(true);
-					result.add(rs.getInt("id"));
-					pstmt.close();
-					BDConect.closeDB(con);
-				}
-				else {
-					result.add(false);
-					result.add(null);
-					pstmt.close();
-					BDConect.closeDB(con);
+					result.add(rs.getInt("id"));					
 				}
 			}
-		} 
-		catch (SQLException e) { 
+			else {
+				result.add(false);
+				}
+			}
+		 
+		catch (SQLException e) {
+			result.add(false);
 			e.printStackTrace();
 		}
+		
 		BDConect.closeDB(con);
 		return result;
 	}

@@ -1,4 +1,3 @@
-<%@page import="sun.security.util.Length"%>
 <%@page import="com.massa.models.Chamado"%>
 <%@page import="com.sun.jdi.Type"%>
 <%@page import="java.util.ArrayList"%>

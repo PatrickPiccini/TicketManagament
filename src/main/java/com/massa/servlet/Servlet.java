@@ -35,9 +35,7 @@ public class Servlet extends HttpServlet {
 		Usuario loginUser = new Usuario(u, s);
 		
 		ArrayList<Object> userExist = BDManip.userExists(loginUser);
-		System.out.println(userExist.size());
 		
-
 		if ((boolean) userExist.get(0)) {
 			response.sendRedirect("teste.jsp?idTecnico=" + (Integer) userExist.get(1));
 			}
