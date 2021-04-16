@@ -120,15 +120,19 @@ body{
 }
 
 .centralinfos{
+	margin: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
+<<<<<<< HEAD
     padding: 150px 0 0 0 ;
+=======
+    padding: 500px 0 0 0 ;
+>>>>>>> 774daa5af2703c5611d97664bb0537217dc7f3f7
     position: relative;
 }
     
 .chamado{
-    margin-top:20px ;
     position: absolute;
     width: 1200px;
     min-width: 200px;
