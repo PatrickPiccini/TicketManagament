@@ -2,8 +2,8 @@ package com.massa.dbutilities;
 import java.sql.*;
 
 abstract class BDConect {
-	static final String dirDatabase = System.getProperty("user.home") + System.getProperty("file.separator") + "eclipse-workspace" + System.getProperty("file.separator") + "Massa" + System.getProperty("file.separator") + "Database" + System.getProperty("file.separator");
-	//static final String dirDatabase = "C:\\Users\\patri\\OneDrive\\Faculdade\\2021.1 - Terceiro Semestre\\Codigos\\P.O.O.A\\TicketManagament\\DataBase\\";
+	//static final String dirDatabase = System.getProperty("user.home") + System.getProperty("file.separator") + "eclipse-workspace" + System.getProperty("file.separator") + "Massa" + System.getProperty("file.separator") + "Database" + System.getProperty("file.separator");
+	static final String dirDatabase = "C:\\Users\\patri\\OneDrive\\Faculdade\\2021.1 - Terceiro Semestre\\Codigos\\P.O.O.A\\TicketManagament\\DataBase\\";
 
 	
 	static Connection connectBD(ConectionTypes ct, String url) {
