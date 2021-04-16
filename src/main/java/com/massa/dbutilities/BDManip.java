@@ -51,6 +51,7 @@ public class BDManip extends BDConect{
 				}
 				else {
 					result.add(false);
+					result.add(null);
 					pstmt.close();
 					BDConect.closeDB(con);
 				}
