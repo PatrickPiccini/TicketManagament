@@ -113,6 +113,7 @@ body{
     height:80%;
     transition-duration: 0.5s;
     position: relative;
+    overflow: auto;
 }
 .checkMenu:checked ~ .infosMain{
     transform: translateX(350px);  
