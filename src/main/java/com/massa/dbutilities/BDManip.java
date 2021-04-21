@@ -40,7 +40,6 @@ public class BDManip extends BDConect{
 			pstmt.setString(2, u.getSenha());
 			
 			ResultSet rs = pstmt.executeQuery();
-			System.out.println(rs.getString("senha"));
 			
 			if (rs.getString("nome").equals(u.getNome()) && rs.getString("senha").equals(u.getSenha())) {
 				while (rs.next()) {
@@ -100,12 +99,20 @@ public class BDManip extends BDConect{
 			pstmt.setInt(1, id);
 			
 			ResultSet rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				Chamado chamado = new Chamado(rs.getInt("IDCHAMADO"), rs.getInt("IDTECNICO"), rs.getString("DESCRICAO"));
 
+			if (rs.last()) {
+				while(rs.next()) {
+					Chamado chamado = new Chamado(rs.getInt("IDCHAMADO"), rs.getInt("IDTECNICO"), rs.getString("DESCRICAO"));
+
+					chamados.add(chamado);
+				}
+			}
+			else {
+				System.out.println("entrou aqui");
+				Chamado chamado = new Chamado(000, 000, "Você não tem chamados!");
 				chamados.add(chamado);
 			}
+			
 			
 			closeDB(con);
 			return chamados;

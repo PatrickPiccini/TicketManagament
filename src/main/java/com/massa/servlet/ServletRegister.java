@@ -30,7 +30,7 @@ public class ServletRegister extends HttpServlet {
 			BDManip.userRegister(u, s, ln, em);
 	 	
  		
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.sendRedirect("index.html");
 	}
 
 	
