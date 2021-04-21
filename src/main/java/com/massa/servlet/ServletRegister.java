@@ -2,6 +2,7 @@ package com.massa.servlet;
 
 import java.io.IOException;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.text.ParseException;
 
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.massa.dbutilities.BDManip;
+import com.massa.models.Usuario;
 
 
 @WebServlet(description = "Servlet que ficará responsável pelo recebimento do novo cadastro e criação de seu registro no BD", urlPatterns = { "/ServletRegister" })
@@ -28,9 +30,11 @@ public class ServletRegister extends HttpServlet {
 			String s = request.getParameter("password");
 
 			BDManip.userRegister(u, s, ln, em);
-	 	
- 		
-		response.sendRedirect("index.html");
+			
+			Usuario user = new Usuario(u, s);
+			ArrayList<Object> userExist = BDManip.userExists(user);
+			
+			response.sendRedirect("teste.jsp?idTecnico=" + (Integer) userExist.get(1));
 	}
 
 	

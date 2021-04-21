@@ -27,6 +27,7 @@ public class BDManip extends BDConect{
 		return null;
 	}
 	
+	
 	public static ArrayList<Object> userExists(Usuario u){
 		Connection con = BDConect.connectBD(ConectionTypes.SQLITE, dirDatabase + "tecnico.db");
 		ArrayList<Object> result = new ArrayList<Object>();
@@ -100,19 +101,15 @@ public class BDManip extends BDConect{
 			
 			ResultSet rs = pstmt.executeQuery();
 
-			if (rs.last()) {
-				while(rs.next()) {
-					Chamado chamado = new Chamado(rs.getInt("IDCHAMADO"), rs.getInt("IDTECNICO"), rs.getString("DESCRICAO"));
-
-					chamados.add(chamado);
-				}
-			}
-			else {
-				System.out.println("entrou aqui");
-				Chamado chamado = new Chamado(000, 000, "Você não tem chamados!");
+			while(rs.next()) {
+				Chamado chamado = new Chamado(rs.getInt("IDCHAMADO"), rs.getInt("IDTECNICO"), rs.getString("DESCRICAO"));
 				chamados.add(chamado);
-			}
+				}
 			
+			if (chamados.size() == 0) {
+				Chamado chamado = new Chamado(000, 000, "Você não tem chamados!");
+				chamados.add(chamado);				
+			}
 			
 			closeDB(con);
 			return chamados;
