@@ -39,7 +39,9 @@ body{
     border-radius: 6px;
     float: left;
     box-shadow: 3px 3px 8px 3px #00000088;
-    
+}
+.stylebox{
+    background-color: white;
 }
 
 .form-wrapper{

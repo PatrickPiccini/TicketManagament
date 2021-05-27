@@ -149,6 +149,7 @@ body{
     font: bold 14pt Arial;
     color:#004362;
     font-style: italic;
+    width: 600px;
 }
 .titleDesc{
     margin: 0px 0 0px 50px;
