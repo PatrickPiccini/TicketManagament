@@ -39,7 +39,7 @@
     <main class='infosMain'>
         <form class='centralinfos'>
             <div class='chamado'>
-                <h3 class="titleID" >ID chamado</h3>
+                <h3 class="titleID">ID chamado</h3>
                 <h3 class="titleIssue" contenteditable="">Titulo Editavel do Chamado</h3>
                 <div class='div2'>
                     <div class='divleft'>
@@ -50,8 +50,9 @@
                         </select>
                     </div>
                     <div class='divright'>
-                        <label for="descInfo" class="titleDesc" >Status</label><br>
-                        <select class='selectBox' onchange="location.href=this.value" style="background-color: #0190d2ad;">
+                        <label for="descInfo" class="titleDesc">Status</label><br>
+                        <select class='selectBox' onchange="location.href=this.value"
+                            style="background-color: #0190d2ad;">
                             <option value="#">Selecione</option>
                             <option value="#">Em Progresso</option>
                             <option value="#">Aguardando Terceiros</option>
@@ -62,8 +63,9 @@
                 </div>
                 <div class='div1'>
                     <div class='divleft'>
-                        <label for="descInfo" class="titleDesc">Descrição</label>
-                        <p class="descInfo" contenteditable="" style="color: rgb(163, 163, 163);">Insira uma descrição
+                        <label for="descInfo" class="titleDesc">Descrição</label><br>
+                        <textarea class="descInfo" id="story" name="story" rows="5" cols="33">It was a dark and stormy night...</textarea>
+                        <!-- <p class="descInfo" contenteditable="" style="color: rgb(163, 163, 163);">Insira uma descrição -->
                         </p>
                     </div>
                     <div class='divright'>

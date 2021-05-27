@@ -11,12 +11,16 @@
     width: 600px;
 }
 .descInfo{
-    min-height: 250px;
-    width: 600px;
+    padding: 10px;
+    min-height: 150px;
+    max-height: 275px;
+    min-width: 600px;
+    max-width: 600px;
     border-color: rgba(110, 110, 110, 0.651);
     box-shadow: 1px 1px 5px 1px #0000003a;
-    padding: 5px;
     border-radius: 6px;
+    font: normal 12pt Arial;
+    line-height: 1.5;
 }
 .selectBox{
     margin: 10px 0 25px 50px;
@@ -87,4 +91,16 @@
     border-radius: 6px;
     border-style: none;
     float: right;
+}
+textarea {
+    font-size: .8rem;
+    letter-spacing: 1px;
+}
+textarea {
+    padding: 10px;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
+    font: normal 12pt Arial;
 }
